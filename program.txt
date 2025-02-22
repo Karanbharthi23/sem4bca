@@ -1,0 +1,325 @@
+(1) Write java program to find grade from percentage using nested if. ( get a percentage from a user)
+
+import java.util.Scanner;
+
+public class GradeCalculator {
+    public static void main(String[] args) {
+        // Create a Scanner object to get input from the user
+        Scanner scanner = new Scanner(System.in);
+
+        // Ask the user to enter their percentage
+        System.out.print("Enter your percentage: ");
+        double percentage = scanner.nextDouble();
+
+        // Determine the grade based on the percentage using nested if
+        String grade;
+
+        if (percentage >= 90) {
+            grade = "A+";
+        } else if (percentage >= 80) {
+            grade = "A";
+        } else if (percentage >= 70) {
+            grade = "B+";
+        } else if (percentage >= 60) {
+            grade = "B";
+        } else if (percentage >= 50) {
+            grade = "C+";
+        } else if (percentage >= 40) {
+            grade = "C";
+        } else {
+            grade = "F";
+        }
+
+        // Output the grade
+        System.out.println("Your grade is: " + grade);
+
+        // Close the scanner object to prevent memory leaks
+        scanner.close();
+    }
+}
+
+(2) Write java program to find maximum of three number using nested if
+
+import java.util.Scanner;
+
+public class MaxOfThree {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Taking three numbers as input
+        System.out.print("Enter first number: ");
+        int num1 = scanner.nextInt();
+        System.out.print("Enter second number: ");
+        int num2 = scanner.nextInt();
+        System.out.print("Enter third number: ");
+        int num3 = scanner.nextInt();
+        
+        int max;
+        
+        // Using nested if to find the maximum
+        if (num1 >= num2) {
+            if (num1 >= num3) {
+                max = num1;
+            } else {
+                max = num3;
+            }
+        } else {
+            if (num2 >= num3) {
+                max = num2;
+            } else {
+                max = num3;
+            }
+        }
+        
+        // Displaying the result
+        System.out.println("The maximum number is: " + max);
+        
+        scanner.close();
+    }
+}
+
+(3) Write java program to sum, subtraction, multiplication , division, of two
+binary, decimal, hexadecimal and octal number
+
+import java.util.Scanner;
+
+public class NumberOperations {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Taking decimal input
+        System.out.print("Enter first decimal number: ");
+        int decimal1 = scanner.nextInt();
+        System.out.print("Enter second decimal number: ");
+        int decimal2 = scanner.nextInt();
+
+        // Taking binary input
+        System.out.print("Enter first binary number: ");
+        String binary1 = scanner.next();
+        System.out.print("Enter second binary number: ");
+        String binary2 = scanner.next();
+
+        // Taking octal input
+        System.out.print("Enter first octal number: ");
+        String octal1 = scanner.next();
+        System.out.print("Enter second octal number: ");
+        String octal2 = scanner.next();
+
+        // Taking hexadecimal input
+        System.out.print("Enter first hexadecimal number: ");
+        String hex1 = scanner.next();
+        System.out.print("Enter second hexadecimal number: ");
+        String hex2 = scanner.next();
+
+        scanner.close();
+
+        // Convert binary, octal, and hexadecimal to decimal
+        int bin1 = Integer.parseInt(binary1, 2);
+        int bin2 = Integer.parseInt(binary2, 2);
+        int oct1 = Integer.parseInt(octal1, 8);
+        int oct2 = Integer.parseInt(octal2, 8);
+        int hexDec1 = Integer.parseInt(hex1, 16);
+        int hexDec2 = Integer.parseInt(hex2, 16);
+
+        // Perform operations
+        performOperations("Decimal", decimal1, decimal2);
+        performOperations("Binary", bin1, bin2);
+        performOperations("Octal", oct1, oct2);
+        performOperations("Hexadecimal", hexDec1, hexDec2);
+    }
+
+    public static void performOperations(String type, int num1, int num2) {
+        System.out.println("\n" + type + " Operations:");
+        System.out.println("Sum: " + num1 + " + " + num2 + " = " + (num1 + num2));
+        System.out.println("Subtraction: " + num1 + " - " + num2 + " = " + (num1 - num2));
+        System.out.println("Multiplication: " + num1 + " * " + num2 + " = " + (num1 * num2));
+
+        if (num2 != 0) {
+            System.out.println("Division: " + num1 + " / " + num2 + " = " + (num1 / num2));
+        } else {
+            System.out.println("Division by zero is not allowed.");
+        }
+    }
+}
+
+
+
+(4) Write java program to find grade using switch case (get a percentage from a user)
+
+import java.util.Scanner;
+
+public class GradeCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Get percentage input from the user
+        System.out.print("Enter your percentage: ");
+        int percentage = scanner.nextInt();
+        scanner.close();
+
+        // Determine grade category (rounded to the nearest 10)
+        int gradeCategory = percentage / 10;
+
+        // Using switch-case to determine the grade
+        String grade;
+        switch (gradeCategory) {
+            case 10:
+            case 9:
+                grade = "A+ (Excellent)";
+                break;
+            case 8:
+                grade = "A (Very Good)";
+                break;
+            case 7:
+                grade = "B (Good)";
+                break;
+            case 6:
+                grade = "C (Satisfactory)";
+                break;
+            case 5:
+                grade = "D (Pass)";
+                break;
+            default:
+                grade = (percentage >= 0) ? "F (Fail)" : "Invalid percentage";
+                break;
+        }
+
+
+(5) Write java program to calculate sum of even number from 1 to 20 usingwhile loop.
+
+public class SumEvenNumbers {
+    public static void main(String[] args) {
+        int num = 1;  // Start from 1
+        int sum = 0;  // Variable to store sum
+
+        while (num <= 20) {
+            if (num % 2 == 0) {  // Check if the number is even
+                sum += num;  // Add even number to sum
+            }
+            num++;  // Increment number
+        }
+
+        // Print the sum of even numbers
+        System.out.println("Sum of even numbers from 1 to 20 is: " + sum);
+    }
+}
+
+(6) Write java program to calculate sum of squares of 1 to 10.
+
+public class SumOfSquares {
+    public static void main(String[] args) {
+        int sum = 0;  // Variable to store the sum
+
+        // Loop from 1 to 10
+        for (int i = 1; i <= 10; i++) {
+            sum += i * i;  // Add the square of the current number
+        }
+
+        // Print the sum of squares
+        System.out.println("Sum of squares from 1 to 10 is: " + sum);
+    }
+}
+
+(7) Write java program to print a triangle. (using for loop)
+
+import java.util.Scanner;
+
+public class TrianglePattern {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Get number of rows from user
+        System.out.print("Enter the number of rows for the triangle: ");
+        int rows = scanner.nextInt();
+        scanner.close();
+
+        // Loop to print the triangle
+        for (int i = 1; i <= rows; i++) {  // Controls the number of rows
+            for (int j = 1; j <= i; j++) {  // Controls the number of stars per row
+                System.out.print("* ");
+            }
+            System.out.println(); // Move to the next line
+        }
+    }
+}
+
+
+(8) Write a java program to find area of square with assertion fire(n value is must be 3.14 if not fire assertion )
+
+
+import java.util.Scanner;
+
+public class SquareAreaAssertion {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Get the side of the square
+        System.out.print("Enter the side length of the square: ");
+        double side = scanner.nextDouble();
+
+        // Get the value of n
+        System.out.print("Enter the value of n (must be 3.14): ");
+        double n = scanner.nextDouble();
+        scanner.close();
+
+        // Assertion to check if n is 3.14
+        assert n == 3.14 : "Assertion failed: n must be 3.14";
+
+        // Calculate the area of the square
+        double area = side * side;
+        System.out.println("Area of the square: " + area);
+    }
+}
+
+(9) write java program to Restricting invalid roll number . Using Enum.
+
+import java.util.Scanner;
+
+enum ValidRollNumbers {
+    ROLL_101, ROLL_102, ROLL_103, ROLL_104, ROLL_105;
+}
+
+public class RestrictRollNumber {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Get roll number input from user
+        System.out.print("Enter your roll number (ROLL_101 to ROLL_105): ");
+        String inputRoll = scanner.next();
+        scanner.close();
+
+        try {
+            // Convert user input to Enum
+            ValidRollNumbers rollNumber = ValidRollNumbers.valueOf(inputRoll.toUpperCase());
+            System.out.println("Valid Roll Number: " + rollNumber);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Invalid Roll Number! Allowed values: ROLL_101 to ROLL_105");
+        }
+    }
+}
+
+
+(10) Write java program to call static and non- static method.
+
+public class StaticNonStaticDemo {
+
+    // Static method
+    static void staticMethod() {
+        System.out.println("This is a static method.");
+    }
+
+    // Non-static method
+    void nonStaticMethod() {
+        System.out.println("This is a non-static method.");
+    }
+
+    public static void main(String[] args) {
+        // Calling static method directly
+        staticMethod();
+
+        // Calling non-static method requires an object
+        StaticNonStaticDemo obj = new StaticNonStaticDemo();
+        obj.nonStaticMethod();
+    }
+}
+
